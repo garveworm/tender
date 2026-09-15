@@ -19,4 +19,4 @@ class Settings(BaseSettings):
         return self.database_url.replace("+asyncpg", "+psycopg")
 
 
-settings = Settings()
+settings = Settings()  # type: ignore[call-arg]

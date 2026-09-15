@@ -7,11 +7,11 @@ app = FastAPI()
 
 
 @app.get("/health")
-async def health(session: SessionDep):
+async def health(session: SessionDep) -> dict[str, str]:
     await session.execute(text("SELECT 1"))
     return {"health": "ok"}
 
 
 @app.post("/ask")
-async def read_root():
+async def read_root() -> dict[str, str]:
     return {"Hello": "World"}

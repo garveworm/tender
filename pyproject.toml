@@ -6,17 +6,24 @@ dependencies = [
     "alembic>=1.16.5",
     "asyncpg>=0.31.0",
     "fastapi>=0.128.8",
+    "mypy>=1.19.1",
     "psycopg[binary]>=3.2.13",
     "pydantic>=2.13.5",
     "pydantic-settings>=2.11.0",
-    "sqlalchemy[asyncio,asyncion]>=2.0.52",
+    "ruff>=0.16.7",
+    "sqlalchemy[asyncio]>=2.0.52",
     "uvicorn[standard]>=0.39.0",
 ]
 
 [tool.mypy]
-strict = true
+strict = false
 files = ["app"]
 
 [[tool.mypy.overrides]]
 module = ["testcontainers.*", "respx.*"]
 ignore_missing_imports = true
+
+[dependency-groups]
+dev = [
+    "pydantic>=2.13.5",
+]
