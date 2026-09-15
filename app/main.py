@@ -1,15 +1,11 @@
 from fastapi import FastAPI
-from sqlalchemy import text
-
-from .session import SessionDep
 
 app = FastAPI()
 
 
 @app.get("/health")
-async def health(session: SessionDep) -> dict[str, str]:
-    await session.execute(text("SELECT 1"))
-    return {"health": "ok"}
+async def health() -> dict[str, str]:
+    return {"status": "ok"}
 
 
 @app.post("/ask")

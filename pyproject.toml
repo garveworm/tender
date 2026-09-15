@@ -24,7 +24,14 @@ files = ["app"]
 module = ["testcontainers.*", "respx.*"]
 ignore_missing_imports = true
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
 [dependency-groups]
 dev = [
+    "httpx2>=2.0.0",
     "pydantic>=2.13.5",
+    "pytest-asyncio>=1.2.0",
+    "testcontainers[postgres]>=4.13.0",
 ]
